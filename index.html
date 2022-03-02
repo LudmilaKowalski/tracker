@@ -5,7 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+   <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+ integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+ crossorigin=""></script>
+ <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+ <link rel="stylesheet" href="/path/to/leaflet.css" />
+ 
+ <script src="/path/to/leaflet.js"></script>
+
   <title>Frontend Mentor | IP Address Tracker</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -14,21 +26,101 @@
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
-<body>
 
-  IP Address Tracker
+
+  <body>
+
+
+    <div id="name">
+      
+     
+        <h2>IP Address Tracker</h2>
+      
+        <input type="text" name="name" id="enter" required pattern="[1-9a-z]+" >
+        <button>></button>
+
+      
+      
+      <div id="form2">
+        <br>
+          IP Address
+          <p class="ip"> </p> 
+          <br>
+          <br>
+          Location
+          <p class="loc"> </p>
+          <br>
+          <br>
+          Timezone
+          <p class="time"> </p>
+          <br>
+          <br>
+          ISP
+          <p class="isp"> </p>
+          <br>
+          <br>
+       
+
+      </div>
+      
+    </div>
+
+    <div class="data">
+
+    </div>
+
+
+    <div id="map"></div>
+
+    <script> 
+
+var map = L.map('map').setView([50.84673, 4.35247], 12);
+
+L.tileLayer('https://tile.openstreetmap.be/osmbe/{z}/{x}/{y}.png', {
+     attribution:
+         '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors' +
+         ', Tiles courtesy of <a href="https://geo6.be/">GEO-6</a>',
+     maxZoom: 18
+ }).addTo(map);
+
+ var marker = L.marker([50.84673, 4.35247]).addTo(map);
+ var popup = marker.bindPopup('<b>Hello world!</b><br />I am a popup.');
+ popup.openPopup();
+
+ 
+ let add = document.getElementById("enter");
+ var ip = "120.0.0.4";
+    var api_key = "at_WZNZ6Ra7EVFHbq9knn2iCBndYNJMP";
+    $(function () {
+       $.ajax({
+           url: "https://geo.ipify.org/api/v1",
+           data: {apiKey: api_key, ipAddress: ip},
+           success: function(data) {
+               $(".ip").append("<pre>"+ JSON.stringify(data,"",1)+"</pre>");
+           }
+       });
+    });
+
+    </script>
+  
+ 
+  <!--
 
   Search for any IP address or domain
 
   IP Address
   Location
   Timezone
-    UTC <!-- add offset value dynamically using the API -->
   ISP
+    UTC  add offset value dynamically using the API 
+  
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
+-->
+
+
 </body>
 </html>

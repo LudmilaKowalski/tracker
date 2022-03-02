@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+body {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(./images/pattern-bg.png);
+}
+
+#name {
+ 
+    text-align: center;
+ 
+}
+
+h2 {
+    font-family: 'Rubik', sans-serif;
+    color: white;
+    text-align: center;
+
+}
+/*
+.area {
+    text-align: center;
+    color: black;
+    margin-top: -5rem;
+    background-color: gray;
+    border: 1MM;
+    border-radius: 2rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    width: 10rem;
+    
+}
+*/
+#form2 {
+    text-align: center;
+    margin-right: 2rem;
+    background-color: white;
+    margin-top: 2rem;
+    border-radius: 2rem;
+    width: 15rem;
+    z-index: 2;
+    height: 18rem;
+    margin-left: 4rem;
+    position: absolute;
+}
+
+button {
+    background-color: black;
+    color: white;
+    margin-left: -0.4rem;
+    border-radius: 0.3rem 0.7rem 0.7rem 0.3rem;
+}
+
+.attribution {
+    margin-top: 2rem;
+    position: bottom;
+}
+
+#map { 
+    height: 30rem;
+    width: 24rem; 
+    position:fixed;
+    margin-top: 7rem;
+}
+
+
+
